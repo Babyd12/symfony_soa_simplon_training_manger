@@ -1,0 +1,9 @@
+<div id="center-form-content">
+	<div class="shadow p-4">
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<button class="btn btn-primary" id="center-content">{{ button_label|default('Save') }}</button>
+		<a href="{{ path('app_formation_index') }}" class="btn btn-primary mt-4">back to list</a>
+		{{ form_end(form) }}
+	</div>
+</div>

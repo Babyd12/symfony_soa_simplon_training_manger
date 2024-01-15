@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	{% for message in app.flashes('error') %}
+		<div class="alert alert-dismissible alert-warning fixed-top ms-auto">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>
+				Well done!
+				{{ message }}
+			</strong>
+
+			<a href="#" class="alert-link">this important alert message</a>.
+		</div>
+
+	{% endfor %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-dismissible alert-secondary fixed-top ms-auto">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>
+				Well done!
+				{{ message }}
+			</strong>
+
+			<a href="#" class="alert-link">this important alert message</a>.
+		</div>
+
+	{% endfor %}
+
+	<div class="row">
+		{% for formation in formations %}
+			<div class="card mt-4" style="width: 18rem;">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 " width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveaspectratio="xMidYMid slice" focusable="false">
+
+					<rect width="100%" height="100%" fill="#555"></rect>
+					<text x="50%" y="50%" fill="#333" dy=".3em">Imgae</text>
+				</svg>
+				<div class="card-body">
+					<h5 class="card-title">{{ formation.title }}
+					</h5>
+					<p class="card-text">{{ formation.description }}
+					</p>
+					<a href="#" class="btn btn-primary">Show more</a>
+					<a href="{{ path('app_user_apply', {'id': formation.id}) }}" class="btn btn-primary">Apply here</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
